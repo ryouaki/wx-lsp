@@ -1,0 +1,19 @@
+{
+  "name": "wx-lsp",
+  "version": "1.0.0-beta.1",
+  "description": "让微信小程序开发更美好",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryouaki/wx-lsp.git"
+  },
+  "author": "ryouaki (46517115@qq.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ryouaki/wx-lsp/issues"
+  },
+  "homepage": "https://github.com/ryouaki/wx-lsp#readme"
+}
