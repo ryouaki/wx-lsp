@@ -2,9 +2,9 @@
   "name": "wx-lsp",
   "version": "1.0.0-beta.1",
   "description": "让微信小程序开发更美好",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": ""
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ryouaki/wx-lsp/issues"
   },
-  "homepage": "https://github.com/ryouaki/wx-lsp#readme"
+  "homepage": "https://github.com/ryouaki/wx-lsp#readme",
+  "dependencies": {
+    "chokidar": "^3.5.2"
+  }
 }
