@@ -21,7 +21,10 @@ context = new Proxy(context, {
 module.exports = {
   ctx: context,
   App: function () {
-    throw new Error('App is not a function, Please Use class App instead.')
+    throw new Error('App is disabled, Please Use class LspApp instead.')
+  },
+  Page: function () {
+    throw new Error('Page is disabled, Please Use class LspPage instead.')
   },
   LspApp: class baseApp {
     constructor(opts) {
@@ -30,5 +33,11 @@ module.exports = {
   },
   StartApp: function (app) {
     App(app)
+  },
+  AddPage: function (name, page) {
+    Page(page)
+  },
+  AddComponent: function (name, comp) {
+    Component(comp)
   }
 }

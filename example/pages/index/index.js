@@ -13,6 +13,7 @@ Page({
   },
   // 事件处理函数
   bindViewTap() {
+    app.globalData.userInfo = '111'
     wx.navigateTo({
       url: '../logs/logs'
     })

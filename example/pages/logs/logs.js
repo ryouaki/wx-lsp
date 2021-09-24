@@ -1,9 +1,11 @@
 // logs.js
 const util = require('../../utils/util.js')
 
+const app = getApp()
 Page({
   data: {
-    logs: []
+    logs: [],
+    test: ''
   },
   onLoad() {
     this.setData({
@@ -12,7 +14,8 @@ Page({
           date: util.formatTime(new Date(log)),
           timeStamp: log
         }
-      })
+      }),
+      test: app.globalData.userInfo
     })
   }
 })
