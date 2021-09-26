@@ -10,16 +10,19 @@ module.exports = {
       throw new Error('Report callback must be a function!')
     }
   },
-  log(obj) {
+  log(type, obj, opts) {
     logger.cb({
       tag: 'log',
+      type: type,
       ts: Date.now(),
-      msg: obj
+      msg: obj,
+      opts
     })
   },
-  event() {
+  event(type, obj) {
     logger.cb({
       tag: 'event',
+      type: type,
       ts: Date.now(),
       msg: obj
     })

@@ -10,7 +10,7 @@
  * - 内存报警 wx.onMemoryWarning(function callback)
  * - 爆栈
  */
-import { log } from './log'
+import { log, event } from './log'
 import ctx from './context'
 
 // 声明周期白名单，需要劫持的接口。
@@ -19,15 +19,16 @@ const reportIpis = ['onError', 'onPageNotFound', 'onUnhandledRejection', 'onThem
 
 // Application基类
 class LspApp {
-
+  constructor() {
+    this.wx = ctx
+  }
 }
 
 // 注册App，并对生命周期进行劫持。
 module.exports.StartApp = function (app) {
-  let target = {
-    ctx
-  }
+  let target = {}
   target.__proto__ = app
+  target.__$$initRecord = Date.now()
 
   if (!(app instanceof LspApp)) {
     throw new Error('Application must extends LspApp!')
@@ -36,16 +37,21 @@ module.exports.StartApp = function (app) {
   let len = lifeAPIs.length
   for (let i = 0; i < len; i++) {
     target[lifeAPIs[i]] = function () {
-      log()
+      event('App', lifeAPIs[i])
       let ret = null
       if (app[lifeAPIs[i]]) {
         ret = app[lifeAPIs[i]].call(app, arguments)
       }
-      log()
+      log('App', lifeAPIs[i], Date.now() - this.__$$initRecord)
       return ret
     }
   }
-
+  target.onError = function () {
+    console.log(...arguments)
+  }
+  target.onUnhandledRejection = function () {
+    console.log(...arguments)
+  }
   App(target)
 }
 
