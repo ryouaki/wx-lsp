@@ -1,0 +1,25 @@
+{
+    "name": "lsp",
+    "displayName": "lsp",
+    "description": "a pligin lsp",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "lsp",
+            "aliases": ["lsp", "lsp"],
+            "extensions": [".lsp"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "lsp",
+            "scopeName": "source.lsp",
+            "path": "./syntaxes/lsp.tmLanguage.json"
+        }]
+    }
+}
