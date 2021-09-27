@@ -1,8 +1,8 @@
 let context = {}
-context.__proto__ = wx
 
 context = new Proxy(context, {
   get: function (target, prop) {
+    console.log('wx', prop)
     return wx[prop]
   },
   set: function (target, prop, value) {

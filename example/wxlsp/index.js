@@ -6,7 +6,6 @@ import {
   StartApp,
   LspApp
 } from './core/application'
-
 import {
   AddPage,
   LspPage
@@ -22,13 +21,16 @@ module.exports = {
     }
   }),
   App() {
-    throw new Error('App() is disabled, Please Use class LspApp instead.')
+    throw new Error('App() is disabled!')
   },
   Page() {
-    throw new Error('Page() is disabled, Please Use class LspPage instead.')
+    throw new Error('Page() is disabled!')
   },
   Component() {
-    throw new Error('Component() is disabled, Please Use class LspComponent instead.')
+    throw new Error('Component() is disabled!')
+  },
+  getApp() {
+    return getApp()
   },
   LspApp,
   StartApp,

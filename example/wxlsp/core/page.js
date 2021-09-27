@@ -24,19 +24,44 @@ const eventAPIs = ['onPullDownRefresh', 'onReachBottom', 'onShareAppMessage', 'o
 
 class LspPage {
   constructor() {
-    this.wx = ctx
   }
 }
 
-module.exports.AddPage = function (name, page) {
-  let target = {}
-  target.__proto__ = page
-  target.name = name
+module.exports.AddPage = function (page) {
+  let target = page
+  target.wx = ctx
+  target.__name__ = page.__proto__.constructor.name
 
   if (!(page instanceof LspPage)) {
     throw new Error('Page must extends LspPage!')
   }
 
+  const start = Date.now()
+  // 注入onLoad
+  target['onLoad'] = function (opts = {}) {
+    event('Page', 'onLoad')
+    if (page['onLoad']) {
+      page['onLoad'].call(this, opts)
+    }
+    log('Page', 'onLoad', {
+      dura: Date.now() - start,
+      ...opts
+    })
+  }
+
+  let keys = Object.getOwnPropertyNames(page.__proto__) 
+  keys.forEach((key) => {
+    if (lifeAPIs.indexOf(key) < 0 && eventAPIs.indexOf(key) < 0) {
+      target[key] = function () {
+        return page[key].call(this, arguments)
+      }
+    }
+  })
+
+  keys = Object.getOwnPropertyNames(page)
+  keys.forEach((key) => {
+    target[key] = page[key]
+  })
 
   Page(target)
 }

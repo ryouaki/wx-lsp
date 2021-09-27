@@ -2,11 +2,12 @@
 import {
   ctx,
   App,
+  getApp,
   LspApp,
   StartApp
 } from './wxlsp/index'
 
-(function (wx, App, LspApp, StartApp) {
+(function (wx, App, getApp, LspApp, StartApp) {
   class Application extends LspApp {
     globalData = {
       userInfo: 222
@@ -61,4 +62,4 @@ import {
 
   StartApp(new Application())
   
-})(ctx, App, LspApp, StartApp)
+})(ctx, App, getApp, LspApp, StartApp)
