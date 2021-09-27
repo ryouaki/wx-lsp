@@ -1,7 +1,7 @@
 let logger = {
   cb: console.log
 }
-
+// Duration
 module.exports = {
   setReportCallback(cb) {
     if (cb && typeof cb === 'function') {

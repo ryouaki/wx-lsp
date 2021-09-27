@@ -28,7 +28,7 @@ class LspApp {
 module.exports.StartApp = function (app) {
   let target = {}
   target.__proto__ = app
-  target.__$$initRecord = Date.now()
+  target._$initTs = Date.now()
 
   if (!(app instanceof LspApp)) {
     throw new Error('Application must extends LspApp!')
@@ -46,12 +46,7 @@ module.exports.StartApp = function (app) {
       return ret
     }
   }
-  target.onError = function () {
-    console.log(...arguments)
-  }
-  target.onUnhandledRejection = function () {
-    console.log(...arguments)
-  }
+  
   App(target)
 }
 
