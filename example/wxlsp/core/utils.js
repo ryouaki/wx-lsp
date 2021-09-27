@@ -59,7 +59,12 @@ function parseUUID(uuid) {
     }
 }
 
+let _sess_id_ = uuid()
+
 module.exports = {
     uuid: uuid,
-    parseUUID: parseUUID
+    parseUUID: parseUUID,
+    getSessId() {
+        return _sess_id_
+    }
 }

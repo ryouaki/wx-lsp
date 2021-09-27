@@ -9,7 +9,11 @@ import {
 (function (wx, App, LspApp, StartApp) {
   class Application extends LspApp {
     globalData = {
-      userInfo: null
+      userInfo: 222
+    }
+
+    onPageNotFound() {
+      console.log('test')
     }
 
     constructor() {
@@ -21,7 +25,7 @@ import {
       const logs = this.wx.getStorageSync('logs') || []
       logs.unshift(Date.now())
       this.wx.setStorageSync('logs', logs)
-
+      
       // 登录
       this.wx.login({
         success: res => {

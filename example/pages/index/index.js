@@ -13,12 +13,13 @@ Page({
   },
   // 事件处理函数
   bindViewTap() {
-    app.globalData.userInfo = '111'
+    // app.globalData1.userInfo = '111'
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '/pages/logs/logs'
     })
   },
   onLoad() {
+    console.log(app)
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true

@@ -7,6 +7,11 @@ import {
   LspApp
 } from './core/application'
 
+import {
+  AddPage,
+  LspPage
+} from './core/page'
+
 module.exports = {
   ctx: new Proxy({}, {
     get: function () {
@@ -17,16 +22,18 @@ module.exports = {
     }
   }),
   App() {
-    throw new Error('App is disabled, Please Use class LspApp instead.')
+    throw new Error('App() is disabled, Please Use class LspApp instead.')
   },
   Page() {
-    throw new Error('Page is disabled, Please Use class LspPage instead.')
+    throw new Error('Page() is disabled, Please Use class LspPage instead.')
   },
-  LspApp: LspApp,
-  StartApp: StartApp,
-  AddPage(name, page) {
-    Page(page)
+  Component() {
+    throw new Error('Component() is disabled, Please Use class LspComponent instead.')
   },
+  LspApp,
+  StartApp,
+  LspPage,
+  AddPage,
   AddComponent(name, comp) {
     Component(comp)
   }
