@@ -17,6 +17,7 @@ import {
   warn
 } from './log'
 import ctx from './context'
+import { mergeProps } from './utils'
 
 // 需要劫持的生命周期
 const lifeAPIs = ['onLoad', 'onShow', 'onReady', 'onHide', 'onUnload']
@@ -25,11 +26,14 @@ const eventAPIs = ['onPullDownRefresh', 'onReachBottom', 'onShareAppMessage', 'o
 class LspPage {
   constructor() {
   }
+
+  wxApi() {
+    return ctx
+  }
 }
 
 module.exports.AddPage = function (page) {
   let target = page
-  target.wx = ctx
   target.__name__ = page.__proto__.constructor.name
 
   if (!(page instanceof LspPage)) {
@@ -37,31 +41,21 @@ module.exports.AddPage = function (page) {
   }
 
   const start = Date.now()
-  // 注入onLoad
-  target['onLoad'] = function (opts = {}) {
-    event('Page', 'onLoad')
-    if (page['onLoad']) {
-      page['onLoad'].call(this, opts)
-    }
-    log('Page', 'onLoad', {
-      dura: Date.now() - start,
-      ...opts
-    })
-  }
-
-  let keys = Object.getOwnPropertyNames(page.__proto__) 
-  keys.forEach((key) => {
-    if (lifeAPIs.indexOf(key) < 0 && eventAPIs.indexOf(key) < 0) {
-      target[key] = function () {
-        return page[key].call(this, arguments)
+  lifeAPIs.forEach((key) => {
+    let cb = page[key]
+    target[key] = function (opts = {}) {
+      event('Page', key)
+      if (cb) {
+        cb.call(this, opts)
       }
+      log('Page', key, {
+        dura: Date.now() - start,
+        ...opts
+      })
     }
   })
-
-  keys = Object.getOwnPropertyNames(page)
-  keys.forEach((key) => {
-    target[key] = page[key]
-  })
+  
+  mergeProps(target, page, [...lifeAPIs, ...eventAPIs])
 
   Page(target)
 }

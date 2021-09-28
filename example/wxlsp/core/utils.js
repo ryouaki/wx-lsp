@@ -66,5 +66,22 @@ module.exports = {
     parseUUID: parseUUID,
     getSessId() {
         return _sess_id_
+    },
+    mergeProps(target, src, excludes = []) {
+        let source = src
+        while (source.__proto__!= null &&
+            source.__proto__.constructor.name != 'Object' && 
+            source.__proto__.constructor.name != 'Function') {
+            let keys = Object.getOwnPropertyNames(source.__proto__) 
+            keys.forEach((key) => {
+                if (excludes.indexOf(key) < 0) {
+                    let cb = src[key]
+                    target[key] = function () {
+                        return cb.call(this, arguments)
+                    }
+                }
+            })
+            source = source.__proto__
+        }
     }
 }

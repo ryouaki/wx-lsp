@@ -21,23 +21,23 @@ import {
         motto: 'Hello World',
         userInfo: {},
         hasUserInfo: false,
-        canIUse: this.wx.canIUse('button.open-type.getUserInfo'),
+        canIUse: this.wxApi().canIUse('button.open-type.getUserInfo'),
         canIUseGetUserProfile: false,
-        canIUseOpenData: this.wx.canIUse('open-data.type.userAvatarUrl') && this.wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+        canIUseOpenData: this.wxApi().canIUse('open-data.type.userAvatarUrl') && this.wxApi().canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
       }
     }
 
     // 事件处理函数
     bindViewTap() {
       // app.globalData1.userInfo = '111'
-      this.wx.navigateTo({
+      this.wxApi().navigateTo({
         url: '/pages/logs/logs'
       })
     }
 
     onLoad() {
       console.log(app)
-      if (this.wx.getUserProfile) {
+      if (this.wxApi().getUserProfile) {
         this.setData({
           canIUseGetUserProfile: true
         })
@@ -46,7 +46,7 @@ import {
 
     getUserProfile(e) {
       // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-      this.wx.getUserProfile({
+      this.wxApi().getUserProfile({
         desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: (res) => {
           console.log(res)

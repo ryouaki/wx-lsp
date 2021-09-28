@@ -17,6 +17,7 @@ import {
   warn
 } from './log'
 import ctx from './context'
+import { mergeProps } from './utils'
 
 // 需要劫持的生命周期。
 const lifeAPIs = ['onLaunch', 'onShow', 'onHide']
@@ -24,13 +25,17 @@ const eventAPIs = ['onError', 'onPageNotFound', 'onUnhandledRejection']
 
 // Application基类
 class LspApp {
-  constructor() {}
+  constructor() {
+  }
+
+  wxApi() {
+    return ctx
+  }
 }
 
 // 注册App，并对生命周期进行劫持。
 module.exports.StartApp = function (app) {
   let target = app
-  target.wx = ctx
 
   if (!(app instanceof LspApp)) {
     throw new Error('Application must extends LspApp!')
@@ -91,6 +96,8 @@ module.exports.StartApp = function (app) {
       })
     })
   }
+
+  mergeProps(target, app, [...lifeAPIs, ...eventAPIs, 'onThemeChange', 'onMemoryWarning'])
 
   App(target)
 }

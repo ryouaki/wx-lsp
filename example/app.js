@@ -23,12 +23,12 @@ import {
 
     onLaunch() {
       // 展示本地存储能力
-      const logs = this.wx.getStorageSync('logs') || []
+      const logs = this.wxApi().getStorageSync('logs') || []
       logs.unshift(Date.now())
-      this.wx.setStorageSync('logs', logs)
+      this.wxApi().setStorageSync('logs', logs)
       
       // 登录
-      this.wx.login({
+      this.wxApi().login({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
         }

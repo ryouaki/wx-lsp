@@ -15,7 +15,6 @@ Page({
           timeStamp: log
         }
       }),
-      test: app.globalData.userInfo
     })
   }
 })
