@@ -32,6 +32,9 @@ module.exports = {
   getApp() {
     return getApp()
   },
+  getCurrentPages() {
+    throw new Error('getCurrentPages() is disabled!')
+  },
   LspApp,
   StartApp,
   LspPage,

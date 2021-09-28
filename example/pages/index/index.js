@@ -2,6 +2,7 @@
 import {
   ctx,
   App,
+  Page,
   getApp,
   LspApp,
   StartApp,
@@ -9,7 +10,7 @@ import {
   AddPage
 } from '../../wxlsp/index'
 
-(function (wx, App, getApp, LspApp, StartApp, LspPage,
+(function (wx, App, Page, getApp, LspApp, StartApp, LspPage,
   AddPage) {
 
   let app = getApp()
@@ -36,7 +37,6 @@ import {
     }
 
     onLoad() {
-      console.log(app)
       if (this.wxApi().getUserProfile) {
         this.setData({
           canIUseGetUserProfile: true
@@ -73,6 +73,7 @@ import {
       })
     }
   }
+
   AddPage(new HomePage())
-})(ctx, App, getApp, LspApp, StartApp, LspPage,
+})(ctx, App, Page, getApp, LspApp, StartApp, LspPage,
   AddPage)

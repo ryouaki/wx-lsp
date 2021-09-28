@@ -11,65 +11,32 @@
  * - 爆栈
  */
 import {
-  log,
   event,
-  error,
   warn
 } from './log'
-import ctx from './context'
+import Base, { injectLifeApi, injectEventApi } from './base'
 import { mergeProps } from './utils'
 
 // 需要劫持的生命周期。
-const lifeAPIs = ['onLaunch', 'onShow', 'onHide']
-const eventAPIs = ['onError', 'onPageNotFound', 'onUnhandledRejection']
+const lifeApis = ['onLaunch', 'onShow', 'onHide']
+const eventApis = ['onError', 'onPageNotFound', 'onUnhandledRejection']
 
 // Application基类
-class LspApp {
-  constructor() {
-  }
+class LspApp extends Base {
 
-  wxApi() {
-    return ctx
-  }
 }
 
 // 注册App，并对生命周期进行劫持。
 module.exports.StartApp = function (app) {
   let target = app
+  const name = app.__proto__.constructor.name
 
   if (!(app instanceof LspApp)) {
     throw new Error('Application must extends LspApp!')
   }
 
-  const start = Date.now()
-  lifeAPIs.forEach((key) => {
-    var cb = app[key]
-    target[key] = function (opts = {}) {
-      event('App', key)
-      const s = Date.now()
-      if (cb) {
-        cb.call(this, opts)
-      }
-      const e = Date.now()
-      log('App', key, {
-        dura: e - s,
-        total_time: e - start,
-        ...opts
-      })
-    }
-  })
-
-  eventAPIs.forEach((key) => {
-    let cb = app[key]
-    target[key] = function (err) {
-      if (app[key]) {
-        cb.call(this, err)
-      }
-      error('App', key, {
-        errMsg: err
-      })
-    }
-  })
+  injectLifeApi(lifeApis, target, app, name)
+  injectEventApi(eventApis, target, app, name, true)
 
   // 注入onThemeChange
   {
@@ -87,7 +54,7 @@ module.exports.StartApp = function (app) {
   // 监控内存不足
   {
     let cb = app['onMemoryWarning']
-    ctx.onMemoryWarning((res) => {
+    target.wxApi().onMemoryWarning((res) => {
       if (cb) {
         cb.call(target, res)
       }
@@ -97,7 +64,7 @@ module.exports.StartApp = function (app) {
     })
   }
 
-  mergeProps(target, app, [...lifeAPIs, ...eventAPIs, 'onThemeChange', 'onMemoryWarning'])
+  mergeProps(target, app, [...lifeApis, ...eventApis, 'onThemeChange', 'onMemoryWarning'])
 
   App(target)
 }

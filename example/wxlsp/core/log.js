@@ -5,10 +5,10 @@ let logger = {
 
 const _sess_id_ = getSessId()
 
-function log (tag, type, method, obj) {
+function log (tag, from, method, obj) {
   logger.cb({
     tag: tag,
-    type: type,
+    from: from,
     func: method,
     ts: Date.now(),
     sid: _sess_id_,
@@ -24,16 +24,16 @@ module.exports = {
       throw new Error('Report callback must be a function!')
     }
   },
-  log(type, method, obj = {}) {
-    log('log', type, method, obj)
+  log(from, method, obj = {}) {
+    log('log', from, method, obj)
   },
-  event(type, method, obj = {}) {
-    log('event', type, method, obj)
+  event(from, method, obj = {}) {
+    log('event', from, method, obj)
   },
-  error(type, method, obj = {}) {
-    log('error', type, method, obj)
+  error(from, method, obj = {}) {
+    log('error', from, method, obj)
   },
-  warn(type, method, obj = {}) {
-    log('warn', type, method, obj)
+  warn(from, method, obj = {}) {
+    log('warn', from, method, obj)
   }
 }

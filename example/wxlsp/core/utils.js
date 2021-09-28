@@ -83,5 +83,36 @@ module.exports = {
             })
             source = source.__proto__
         }
-    }
+    },
+    throttle(wait, func) {
+        let _func = func;
+        let _last = new Date();
+        let _context = this;
+        let _wait = wait;
+        let _timer = null;
+        if (typeof wait === 'function') {
+          _func = wait;
+          _wait = 60;
+        }
+      
+        return function (...args) {
+          const now = new Date();
+          const diff = now - _last;
+          if (_timer) {
+            clearTimeout(_timer);
+            _timer = null;
+          }
+          if (diff >= _wait) {
+            _func.apply(_context, args);
+            _last = now;
+          } else {
+            _timer = setTimeout(function () {
+              _func.apply(_context, args);
+              clearTimeout(_timer);
+              _timer = null;
+              _last = now;
+            }, _wait - diff);
+          }
+        }
+      }
 }
