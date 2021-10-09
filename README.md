@@ -12,6 +12,7 @@
 7. 支持less转wxss？可以考虑。
 8. 支持ts
 9. 支持npm包
+10. 原生js，wxss，wss，wxml，json不进行转码。直接同步
 
 ## 工程目录
 
