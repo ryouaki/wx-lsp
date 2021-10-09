@@ -52,6 +52,16 @@
     |-- package.json
     |-- package-lock.json // 锁版本文件
     |-- .gitignore // git黑名单
+    |-- tsconfig.json
     |-- Readme.md // 项目说明文档
     |-- License // 协议
 ```
+
+## ToDo
+
+1. App基础类 OK
+2. Page基础类 OK
+3. Component基础类 OK
+4. 沙盒隔离实现 OK
+5. 自动生成代码工具
+6. VSCODE语法高亮插件
