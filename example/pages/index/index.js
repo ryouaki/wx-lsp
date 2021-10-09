@@ -13,13 +13,10 @@ import {
 (function (wx, App, Page, getApp, LspApp, StartApp, LspPage,
   Add) {
 
-  let app = getApp()
-
   class HomePage extends LspPage {
     constructor() {
       super()
       this.data = {
-        motto: 0,
         userInfo: {},
         hasUserInfo: false,
         canIUse: this.wxApi().canIUse('button.open-type.getUserInfo'),
@@ -30,7 +27,6 @@ import {
 
     // 事件处理函数
     bindViewTap() {
-      // app.globalData1.userInfo = '111'
       this.wxApi().navigateTo({
         url: '/pages/logs/logs'
       })
@@ -64,12 +60,6 @@ import {
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
-      })
-    }
-
-    bindViewTap2() {
-      this.setData({
-        motto: this.data.motto + 1
       })
     }
   }
