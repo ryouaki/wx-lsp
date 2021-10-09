@@ -2,29 +2,33 @@
 import {
   ctx,
   App,
+  getApp,
   LspApp,
   StartApp
 } from './wxlsp/index'
 
-(function (wx, App, LspApp, StartApp) {
+(function (wx, App, getApp, LspApp, StartApp) {
   class Application extends LspApp {
+    globalData = {
+      userInfo: 222
+    }
+
+    onPageNotFound() {
+      console.log('test')
+    }
+
     constructor() {
       super()
-
-      this.globalData = {
-        userInfo: null
-      }
     }
 
     onLaunch() {
-      console.log('App.onLaunch')
       // 展示本地存储能力
-      const logs = wx.getStorageSync('logs') || []
+      const logs = this.wxApi().getStorageSync('logs') || []
       logs.unshift(Date.now())
-      wx.setStorageSync('logs', logs)
-
+      this.wxApi().setStorageSync('logs', logs)
+      
       // 登录
-      wx.login({
+      this.wxApi().login({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
         }
@@ -58,4 +62,4 @@ import {
 
   StartApp(new Application())
   
-})(ctx, App, LspApp, StartApp)
+})(ctx, App, getApp, LspApp, StartApp)

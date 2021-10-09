@@ -10,41 +10,61 @@
  * - 内存报警 wx.onMemoryWarning(function callback)
  * - 爆栈
  */
-import { log } from './log'
-import ctx from './context'
+import {
+  event,
+  warn
+} from './log'
+import Base, { injectLifeApi, injectEventApi } from './base'
+import { mergeProps } from './utils'
 
-// 声明周期白名单，需要劫持的接口。
-const lifeAPIs = ['onLaunch', 'onShow', 'onHide']
-const reportIpis = ['onError', 'onPageNotFound', 'onUnhandledRejection', 'onThemeChange']
+// 需要劫持的生命周期。
+const lifeApis = ['onLaunch', 'onShow', 'onHide']
+const eventApis = ['onError', 'onPageNotFound', 'onUnhandledRejection']
 
 // Application基类
-class LspApp {
+class LspApp extends Base {
 
 }
 
 // 注册App，并对生命周期进行劫持。
 module.exports.StartApp = function (app) {
-  let target = {
-    ctx
-  }
-  target.__proto__ = app
+  let target = app
+  const name = app.__proto__.constructor.name
 
   if (!(app instanceof LspApp)) {
     throw new Error('Application must extends LspApp!')
   }
 
-  let len = lifeAPIs.length
-  for (let i = 0; i < len; i++) {
-    target[lifeAPIs[i]] = function () {
-      log()
-      let ret = null
-      if (app[lifeAPIs[i]]) {
-        ret = app[lifeAPIs[i]].call(app, arguments)
+  injectLifeApi(lifeApis, target, app, name)
+  injectEventApi(eventApis, target, app, name, true)
+
+  // 注入onThemeChange
+  {
+    let cb = app['onThemeChange']
+    target['onThemeChange'] = function (res) {
+      if (cb) {
+        cb.call(this, res)
       }
-      log()
-      return ret
+      event('App', 'onThemeChange', {
+        msg: res
+      })
     }
   }
+
+  // 监控内存不足
+  {
+    let cb = app['onMemoryWarning']
+    target.wxApi().onMemoryWarning((res) => {
+      if (cb) {
+        cb.call(target, res)
+      }
+      warn('App', 'onMemoryWarning', {
+        errMsg: res
+      })
+    })
+  }
+
+  mergeProps(target, app, [...lifeApis, ...eventApis, 'onThemeChange', 'onMemoryWarning'])
 
   App(target)
 }
