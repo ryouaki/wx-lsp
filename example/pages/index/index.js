@@ -28,7 +28,7 @@ import {
     // 事件处理函数
     bindViewTap() {
       this.wxApi().navigateTo({
-        url: '/pages/logs/logs'
+        url: '/pages/wxlsp/index'
       })
     }
 

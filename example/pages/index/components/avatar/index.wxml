@@ -1,3 +1,0 @@
-<!--pages/index/avatar.wxml-->
-<text>{{motto}}</text>
-<text>{{count}}</text>
