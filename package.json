@@ -1,0 +1,22 @@
+{
+  "name": "wx-lsp",
+  "version": "1.0.0",
+  "description": "让微信小程序开发更美好！",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "init": "node packages/wx-lsp-core/bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryouaki/wx-lsp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryouaki/wx-lsp/issues"
+  },
+  "homepage": "https://github.com/ryouaki/wx-lsp#readme"
+}
