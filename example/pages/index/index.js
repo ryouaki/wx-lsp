@@ -7,11 +7,11 @@ import {
   LspApp,
   StartApp,
   LspPage,
-  AddPage
+  Add
 } from '../../wxlsp/index'
 
 (function (wx, App, Page, getApp, LspApp, StartApp, LspPage,
-  AddPage) {
+  Add) {
 
   let app = getApp()
 
@@ -19,7 +19,7 @@ import {
     constructor() {
       super()
       this.data = {
-        motto: 'Hello World',
+        motto: 0,
         userInfo: {},
         hasUserInfo: false,
         canIUse: this.wxApi().canIUse('button.open-type.getUserInfo'),
@@ -74,6 +74,6 @@ import {
     }
   }
 
-  AddPage(new HomePage())
+  Add(new HomePage())
 })(ctx, App, Page, getApp, LspApp, StartApp, LspPage,
-  AddPage)
+  Add)

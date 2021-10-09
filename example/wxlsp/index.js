@@ -10,6 +10,13 @@ import {
   AddPage,
   LspPage
 } from './core/page'
+import {
+  AddComponent,
+  LspComponent
+} from './core/component'
+import {
+  setReportFn
+} from './core/log'
 
 module.exports = {
   ctx: new Proxy({}, {
@@ -38,8 +45,13 @@ module.exports = {
   LspApp,
   StartApp,
   LspPage,
-  AddPage,
-  AddComponent(name, comp) {
-    Component(comp)
-  }
+  LspComponent,
+  Add (target) {
+    if (target instanceof LspComponent) {
+      AddComponent(target)
+    } else if (target instanceof LspPage) {
+      AddPage(target)
+    }
+  },
+  setReportFn
 }

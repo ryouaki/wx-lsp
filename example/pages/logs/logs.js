@@ -7,11 +7,11 @@ import {
   LspApp,
   StartApp,
   LspPage,
-  AddPage
+  Add
 } from '../../wxlsp/index'
 
 (function (wx, App, Page, getApp, LspApp, StartApp, LspPage,
-  AddPage) {
+  Add) {
   // logs.js
   const util = require('../../utils/util.js')
 
@@ -33,6 +33,6 @@ import {
 
   }
 
-  AddPage(new LogPage())
+  Add(new LogPage())
 })(ctx, App, Page, getApp, LspApp, StartApp, LspPage,
-  AddPage)
+  Add)

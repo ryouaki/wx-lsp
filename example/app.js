@@ -4,7 +4,8 @@ import {
   App,
   getApp,
   LspApp,
-  StartApp
+  StartApp,
+  setReportFn
 } from './wxlsp/index'
 
 (function (wx, App, getApp, LspApp, StartApp) {
@@ -19,6 +20,9 @@ import {
 
     constructor() {
       super()
+      // setReportFn(() => {
+
+      // })
     }
 
     onLaunch() {
