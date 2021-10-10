@@ -7,19 +7,16 @@ import {
   LspApp,
   StartApp,
   LspPage,
-  AddPage
+  Add
 } from '../../wxlsp/index'
 
 (function (wx, App, Page, getApp, LspApp, StartApp, LspPage,
-  AddPage) {
-
-  let app = getApp()
+  Add) {
 
   class HomePage extends LspPage {
     constructor() {
       super()
       this.data = {
-        motto: 'Hello World',
         userInfo: {},
         hasUserInfo: false,
         canIUse: this.wxApi().canIUse('button.open-type.getUserInfo'),
@@ -30,9 +27,8 @@ import {
 
     // 事件处理函数
     bindViewTap() {
-      // app.globalData1.userInfo = '111'
       this.wxApi().navigateTo({
-        url: '/pages/logs/logs'
+        url: '/pages/wxlsp/index'
       })
     }
 
@@ -66,14 +62,8 @@ import {
         hasUserInfo: true
       })
     }
-
-    bindViewTap2() {
-      this.setData({
-        motto: this.data.motto + 1
-      })
-    }
   }
 
-  AddPage(new HomePage())
+  Add(new HomePage())
 })(ctx, App, Page, getApp, LspApp, StartApp, LspPage,
-  AddPage)
+  Add)

@@ -1,0 +1,11 @@
+{
+  "name": "wxlsp-demo",
+  "version": "1.0.0",
+  "description": "wxlsp开发联调工程",
+  "scripts": {
+    "init": "node ../packages/wx-lsp-cli/bin/init.js",
+    "dev": "node ../packages/wx-lsp-core/bin/development.js"
+  },
+  "author": "ryouaki(46517115@qq.com)",
+  "license": "MIT"
+}
