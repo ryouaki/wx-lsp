@@ -62,62 +62,93 @@ function parseUUID(uuid) {
 
 let _sess_id_ = uuid()
 
+function str2path(path) {
+  const ret = [];
+  const keys = path.split('.');
+  keys.forEach(function transKey(key) {
+    const start = key.indexOf('[');
+    const end = key.indexOf(']');
+    if (start > -1 && end > -1) {
+      ret.push(key.substring(0, start));
+      ret.push(key.substring(start + 1, end));
+    } else {
+      ret.push(key);
+    }
+  });
+  return ret;
+}
+
+function _get(obj, path, def) {
+  const basePath = str2path(path);
+
+  return (
+    basePath.reduce((ret, next) => {
+      return ret === undefined ? undefined : ret[next];
+    }, obj) || def
+  );
+}
+
+function mergeProps(target, src, excludes = []) {
+  let source = src
+  while (source.__proto__ != null &&
+    source.__proto__.constructor.name != 'Object' &&
+    source.__proto__.constructor.name != 'Function') {
+    let keys = Object.getOwnPropertyNames(source.__proto__)
+    keys.forEach((key) => {
+      if (excludes.indexOf(key) < 0 && !target.hasOwnProperty(key)) {
+        let cb = src[key]
+        if (typeof cb === 'function') {
+          target[key] = function () {
+            return cb.call(this, arguments)
+          }
+        } else {
+          target[key] = cb
+        }
+      }
+    })
+    source = source.__proto__
+  }
+}
+
+function throttle(wait, func) {
+  let _func = func;
+  let _last = new Date();
+  let _context = this;
+  let _wait = wait;
+  let _timer = null;
+  if (typeof wait === 'function') {
+    _func = wait;
+    _wait = 60;
+  }
+
+  return function (...args) {
+    const now = new Date();
+    const diff = now - _last;
+    if (_timer) {
+      clearTimeout(_timer);
+      _timer = null;
+    }
+    if (diff >= _wait) {
+      _func.apply(_context, args);
+      _last = now;
+    } else {
+      _timer = setTimeout(function () {
+        _func.apply(_context, args);
+        clearTimeout(_timer);
+        _timer = null;
+        _last = now;
+      }, _wait - diff);
+    }
+  }
+}
+
 module.exports = {
   uuid: uuid,
   parseUUID: parseUUID,
   getSessId() {
     return _sess_id_
   },
-  mergeProps(target, src, excludes = []) {
-    let source = src
-    while (source.__proto__ != null &&
-      source.__proto__.constructor.name != 'Object' &&
-      source.__proto__.constructor.name != 'Function') {
-      let keys = Object.getOwnPropertyNames(source.__proto__)
-      keys.forEach((key) => {
-        if (excludes.indexOf(key) < 0 && !target.hasOwnProperty(key)) {
-          let cb = src[key]
-          if (typeof cb === 'function') {
-            target[key] = function () {
-              return cb.call(this, arguments)
-            }
-          } else {
-            target[key] = cb
-          }
-        }
-      })
-      source = source.__proto__
-    }
-  },
-  throttle(wait, func) {
-    let _func = func;
-    let _last = new Date();
-    let _context = this;
-    let _wait = wait;
-    let _timer = null;
-    if (typeof wait === 'function') {
-      _func = wait;
-      _wait = 60;
-    }
-
-    return function (...args) {
-      const now = new Date();
-      const diff = now - _last;
-      if (_timer) {
-        clearTimeout(_timer);
-        _timer = null;
-      }
-      if (diff >= _wait) {
-        _func.apply(_context, args);
-        _last = now;
-      } else {
-        _timer = setTimeout(function () {
-          _func.apply(_context, args);
-          clearTimeout(_timer);
-          _timer = null;
-          _last = now;
-        }, _wait - diff);
-      }
-    }
-  }
+  mergeProps,
+  throttle,
+  _get
 }

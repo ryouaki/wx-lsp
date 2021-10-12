@@ -1,4 +1,6 @@
 <!--logs.wxml-->
 <view class="container">
-  Welcome come to wxlsp
+  Welcome come to wxlsp<br/>
+  {{now}}<br/>
+  {{today}}
 </view>
