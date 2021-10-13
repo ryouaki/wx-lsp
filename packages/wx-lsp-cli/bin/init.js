@@ -31,7 +31,6 @@ fs.writeFileSync(`${__root}/sitemap.json`, sitemap, {
   flag: 'w'
 })
 
-
 // 初始化样板代码
 
 // 初始化工程配置
