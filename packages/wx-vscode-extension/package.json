@@ -1,25 +1,147 @@
 {
-    "name": "lsp",
-    "displayName": "lsp",
-    "description": "a pligin lsp",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.60.0"
-    },
-    "categories": [
-        "Programming Languages"
+  "name": "lsp",
+  "displayName": "lsp",
+  "description": "lsp 语法高亮",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "keywords": [
+    "lsp",
+    "小程序",
+    "微信",
+    "wxml",
+    "wxss",
+    "wxs",
+    "wechat",
+    "wexin"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:lsp"
+  ],
+  "main": "./dist/extension",
+  "contributes": {
+    "breakpoints": [
+      {
+        "language": "lsp"
+      }
     ],
-    "contributes": {
-        "languages": [{
-            "id": "lsp",
-            "aliases": ["lsp", "lsp"],
-            "extensions": [".lsp"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "lsp",
-            "scopeName": "source.lsp",
-            "path": "./syntaxes/lsp.tmLanguage.json"
-        }]
-    }
+    "languages": [
+      {
+        "id": "lsp",
+        "aliases": ["lsp", "lsp"],
+        "extensions": [".lsp"],
+        "configuration": "./languages/lsp-language-configuration.json"
+      },
+      {
+        "id": "lsp-wxs",
+        "aliases": ["lsp", "lsp"],
+        "extensions": [".lsp"],
+        "configuration": "./languages/lsp-language-configuration.json"
+      },
+      {
+        "id": "lsp-wxml",
+        "aliases": [
+          "lsp-wxml"
+        ],
+        "configuration": "./languages/lsp-wxml-language-configuration.json"
+      },
+      {
+        "id": "lsp-postcss",
+        "aliases": [
+          "lsp-PostCSS",
+          "lsp-POSTCSS",
+          "lsp-postcss"
+        ],
+        "configuration": "./languages/lsp-postcss-language-configuration.json"
+      },
+      {
+        "id": "lsp-sugarss",
+        "aliases": [
+          "lsp-SugarSS",
+          "lsp-SUGARSS",
+          "lsp-sugarss"
+        ],
+        "configuration": "./languages/lsp-sugarss-language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lsp",
+        "scopeName": "source.lsp",
+        "path": "./syntaxes/lsp-generated.json",
+        "embeddedLanguages": {
+          "text.html.basic": "html",
+          "text.html.wxml": "lsp-wxml",
+          "source.css": "css",
+          "source.css.postcss": "lsp-postcss",
+          "source.css.sugarss": "lsp-sugarss",
+          "source.js": "javascript",
+          "source.ts": "typescript",
+          "source.wxs": "javascript",
+          "source.json": "json"
+        }
+      },
+      {
+        "language": "lsp-postcss",
+        "scopeName": "source.css.postcss",
+        "path": "./syntaxes/lsp-postcss.json"
+      },
+      {
+        "language": "lsp-sugarss",
+        "scopeName": "source.css.sugarss",
+        "path": "./syntaxes/lsp-sugarss.json"
+      },
+      {
+        "language": "lsp-wxml",
+        "scopeName": "text.html.wxml",
+        "path": "./syntaxes/wxml.tmLanguage"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/lsp-js.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/lsp-js.json"
+      },
+      {
+        "language": "lsp-wxs",
+        "path": "./snippets/lsp-js.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/lsp-wxml.json"
+      },
+      {
+        "language": "lsp-wxml",
+        "path": "./snippets/lsp-wxml.json"
+      },
+      {
+        "language": "json",
+        "path": "./snippets/lsp-json.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "node ./scripts/compile.js",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "fast-xml-parser": "^3.19.0",
+    "vscode": "^1.1.37"
+  },
+  "dependencies": {}
 }

@@ -1,0 +1,16 @@
+<snippet>
+  <prefix>page</prefix>
+  <description><![CDATA[Page 页面对应的 JSON 文件配置项]]></description>
+  <body><![CDATA[
+    {
+	"navigationBarBackgroundColor": "#000000",
+	"navigationBarTextStyle": "white",
+	"navigationBarTitleText": "",
+	"backgroundColor": "#ffffff",
+	"backgroundTextStyle": "dark|light",
+	"enablePullDownRefresh": false,
+	"disableScroll": false,
+	"onReachBottomDistance": false
+}
+  ]]></body>
+</snippet>

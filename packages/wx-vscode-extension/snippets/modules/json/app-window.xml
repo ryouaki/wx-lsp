@@ -1,0 +1,19 @@
+<snippet>
+  <prefix>window</prefix>
+  <description><![CDATA[App 对应的 JSON 文件 window 配置项]]></description>
+  <body><![CDATA[
+    "window": {
+	"navigationBarBackgroundColor": "#000000",
+	"navigationBarTextStyle": "white",
+	"navigationBarTitleText": "",
+	"navigationStyle": "default|custom",
+	"backgroundColor": "#ffffff",
+	"backgroundTextStyle": "dark|light",
+	"backgroundColorTop": "#ffffff",
+	"backgroundColorBottom": "#ffffff",
+	"enablePullDownRefresh": true,
+	"onReachBottomDistance": 50
+},
+${1}
+  ]]></body>
+</snippet>
