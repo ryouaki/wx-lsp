@@ -15,8 +15,12 @@ import {
   LspComponent
 } from './core/component'
 import {
+  LspBehavior
+} from './core/behavior'
+import {
   setReportFn
 } from './core/log'
+import Utils from './core/utils'
 
 module.exports = {
   ctx: new Proxy({}, {
@@ -46,6 +50,7 @@ module.exports = {
   StartApp,
   LspPage,
   LspComponent,
+  LspBehavior,
   Add (target) {
     if (target instanceof LspComponent) {
       AddComponent(target)
@@ -53,5 +58,6 @@ module.exports = {
       AddPage(target)
     }
   },
-  setReportFn
+  setReportFn,
+  Utils
 }

@@ -12,9 +12,19 @@ import {
 
 (function (wx, App, Page, getApp, LspApp, StartApp, LspPage,
   Add) {
-  class LogPage extends LspPage {
+  var getBehavior = require('./../../behaviors/index')
+
+  class WxlspPage extends LspPage {
+    behaviors = [
+      getBehavior('wxlsp'), 
+      getBehavior('test/today')
+    ]
+
+    onShow() {console.log('test')
+      this.timeHandle()
+    }
   }
 
-  Add(new LogPage())
+  Add(new WxlspPage())
 })(ctx, App, Page, getApp, LspApp, StartApp, LspPage,
   Add)
