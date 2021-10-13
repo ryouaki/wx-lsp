@@ -15,7 +15,10 @@ import {
   var getBehavior = require('./../../behaviors/index')
 
   class WxlspPage extends LspPage {
-    behaviors = [getBehavior('wxlsp'), getBehavior('test/today')]
+    behaviors = [
+      getBehavior('wxlsp'), 
+      getBehavior('test/today')
+    ]
 
     onShow() {console.log('test')
       this.timeHandle()

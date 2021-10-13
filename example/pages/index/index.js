@@ -8,7 +8,7 @@ import {
   StartApp,
   LspPage,
   Add
-} from '../../wxlsp/index'
+} from './../../wxlsp/index'
 
 (function (wx, App, Page, getApp, LspApp, StartApp, LspPage,
   Add) {

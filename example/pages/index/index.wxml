@@ -1,4 +1,12 @@
 <!--index.wxml-->
+<wxs module="util">
+  var count = 0
+  
+  module.exports.count = function () {
+    return count
+  }
+</wxs>
+<import src="/templates/hello/index"/>
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
@@ -16,5 +24,10 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
+  </view>
+  <notice></notice>
+  <template is="hello"></template>
+  <view>
+    {{util.count()}}
   </view>
 </view>
