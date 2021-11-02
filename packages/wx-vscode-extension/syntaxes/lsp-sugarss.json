@@ -373,6 +373,6 @@
         "foldingStartMarker": "/\\*|^#|^\\*|^\\b|^\\.",
         "foldingStopMarker": "\\*/|^\\s*$",
         "fileTypes": ["sss"],
-        "uuid": "BDAE4719-925F-433C-905A-CAE367D924AC",
+        "uuid": "fb91209c-4e4f-4e08-978a-69622cc0be8f",
         "scopeName": "source.css.sugarss"
 }

@@ -17,6 +17,7 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
+    <view></view>
   </view>
 </wxml>
 

@@ -1,10 +1,10 @@
 {
-  "name": "Lsp",
+  "name": "lsp",
   "scopeName": "source.lsp",
   "fileTypes": [
     "lsp"
   ],
-  "uuid": "5512c10d-4cc5-434c-b8fc-53b912f55ab3",
+  "uuid": "ea9d2dec-afb7-4c96-bd60-78d2276cc536",
   "patterns": [
     {
       "begin": "(<)(slim)",
@@ -13,7 +13,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(slim)(>)",
@@ -22,7 +22,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -56,7 +56,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(json)(>)",
@@ -65,7 +65,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -87,6 +87,49 @@
           "patterns": [
             {
               "include": "source.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "begin": "(<)(json)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.style.html"
+        }
+      },
+      "end": "(</)(json)(>)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.style.html"
+        },
+        "3": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag-stuff"
+        },
+        {
+          "begin": "(>)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.tag.end.html"
+            }
+          },
+          "end": "(?=</json>)",
+          "contentName": "text.html.json",
+          "patterns": [
+            {
+              "include": "text.html.json"
             }
           ]
         }
@@ -170,221 +213,6 @@
       ]
     },
     {
-      "begin": "(<)(wxml)\\b(?=[^>]*lang=('jade'|\"jade\"|'pug'|\"pug\"))(?![^/>]*/>\\s*$)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        }
-      },
-      "end": "(</)(wxml)(>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        },
-        "3": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#tag-stuff"
-        },
-        {
-          "contentName": "text.pug",
-          "begin": "(>)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.tag.end.html"
-            }
-          },
-          "end": "(?=</wxml>)",
-          "patterns": [
-            {
-              "include": "text.pug"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "begin": "(<)(wxml)\\b(?=[^>]*lang=('haml'|\"haml\"))(?![^/>]*/>\\s*$)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        }
-      },
-      "end": "(</)(wxml)(>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        },
-        "3": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#tag-stuff"
-        },
-        {
-          "contentName": "text.haml",
-          "begin": "(>)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.tag.end.html"
-            }
-          },
-          "end": "(?=</wxml>)",
-          "patterns": [
-            {
-              "include": "text.haml"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "begin": "(<)(wxml)\\b(?=[^>]*lang=('slim'|\"slim\"))(?![^/>]*/>\\s*$)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        }
-      },
-      "end": "(</)(wxml)(>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        },
-        "3": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#tag-stuff"
-        },
-        {
-          "contentName": "text.slim",
-          "begin": "(>)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.tag.end.html"
-            }
-          },
-          "end": "(?=</wxml>)",
-          "patterns": [
-            {
-              "include": "text.slim"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "begin": "(<)(wxml)\\b(?=[^>]*lang=('slm'|\"slm\"))(?![^/>]*/>\\s*$)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        }
-      },
-      "end": "(</)(wxml)(>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        },
-        "3": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#tag-stuff"
-        },
-        {
-          "contentName": "text.jade.slm",
-          "begin": "(>)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.tag.end.html"
-            }
-          },
-          "end": "(?=</wxml>)",
-          "patterns": [
-            {
-              "include": "text.jade.slm"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "begin": "(<)(wxml)\\b(?=[^>]*lang=('liquid'|\"liquid\"))(?![^/>]*/>\\s*$)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        }
-      },
-      "end": "(</)(wxml)(>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.wxml.html"
-        },
-        "3": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#tag-stuff"
-        },
-        {
-          "contentName": "text.html.liquid",
-          "begin": "(>)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.tag.end.html"
-            }
-          },
-          "end": "(?=</wxml>)",
-          "patterns": [
-            {
-              "include": "text.html.liquid"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "begin": "(<)(wxml)(?![^/>]*/>\\s*$)",
       "beginCaptures": {
         "1": {
@@ -411,7 +239,7 @@
           "include": "#tag-stuff"
         },
         {
-          "contentName": "text.html.lsp-wxml",
+          "contentName": "text.html.lsp-html",
           "begin": "(>)",
           "beginCaptures": {
             "1": {
@@ -421,7 +249,7 @@
           "end": "(?=^</wxml>)",
           "patterns": [
             {
-              "include": "text.html.lsp-wxml"
+              "include": "text.html.lsp-html"
             }
           ]
         }
@@ -434,7 +262,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(/>)",
@@ -456,7 +284,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -465,7 +293,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -493,7 +321,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -502,7 +330,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -536,7 +364,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -545,7 +373,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -579,7 +407,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -588,7 +416,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -622,7 +450,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -631,7 +459,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -665,7 +493,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -674,7 +502,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -708,7 +536,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -717,7 +545,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -751,7 +579,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         }
       },
       "end": "(</)(wxss)(>)",
@@ -760,7 +588,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.wxss.html"
+          "name": "entity.name.tag.style.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -794,7 +622,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.js.html"
+          "name": "entity.name.tag.script.html"
         }
       },
       "end": "(/>)",
@@ -816,7 +644,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.js.html"
+          "name": "entity.name.tag.script.html"
         }
       },
       "end": "(</)(js)(>)",
@@ -825,7 +653,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.js.html"
+          "name": "entity.name.tag.script.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -853,7 +681,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.js.html"
+          "name": "entity.name.tag.script.html"
         }
       },
       "end": "(</)(js)(>)",
@@ -862,7 +690,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.js.html"
+          "name": "entity.name.tag.script.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"
@@ -890,56 +718,13 @@
       ]
     },
     {
-      "begin": "(<)(js)\\b(?=[^>]*lang=('coffee'|\"coffee\"))(?![^/>]*/>\\s*$)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.js.html"
-        }
-      },
-      "end": "(</)(js)(>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.js.html"
-        },
-        "3": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#tag-stuff"
-        },
-        {
-          "contentName": "source.coffee",
-          "begin": "(>)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.tag.end.html"
-            }
-          },
-          "end": "(?=</js>)",
-          "patterns": [
-            {
-              "include": "source.coffee"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "begin": "(<)(js)(?![^/>]*/>\\s*$)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.js.html"
+          "name": "entity.name.tag.script.html"
         }
       },
       "end": "(</)(js)(>)",
@@ -948,7 +733,7 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "2": {
-          "name": "entity.name.tag.js.html"
+          "name": "entity.name.tag.script.html"
         },
         "3": {
           "name": "punctuation.definition.tag.end.html"

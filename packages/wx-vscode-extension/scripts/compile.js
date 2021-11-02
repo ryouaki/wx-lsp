@@ -54,12 +54,10 @@ const snippetToXml = group => {
       fs.writeFileSync(
         path.join(sourceSnippetPath, group, `${snippet}.xml`),
         `<snippet>
-  <prefix>${snippets[snippet].prefix}</prefix>
-  <description><![CDATA[${snippets[snippet].description}]]></description>
-  <body><![CDATA[
-    ${body}
-  ]]></body>
-</snippet>`,
+          <prefix>${snippets[snippet].prefix}</prefix>
+          <description><![CDATA[${snippets[snippet].description}]]></description>
+          <body><![CDATA[${body}]]></body>
+        </snippet>`,
         'utf8'
       )
     }

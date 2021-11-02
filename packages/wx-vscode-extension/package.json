@@ -2,6 +2,7 @@
   "name": "lsp",
   "displayName": "lsp",
   "description": "lsp 语法高亮",
+  "publisher": "lsp",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.61.0"
@@ -22,24 +23,18 @@
   "activationEvents": [
     "onLanguage:lsp"
   ],
-  "main": "./dist/extension",
+  "main": "./dist/extension.dev.js",
   "contributes": {
-    "breakpoints": [
-      {
-        "language": "lsp"
-      }
-    ],
     "languages": [
       {
         "id": "lsp",
-        "aliases": ["lsp", "lsp"],
-        "extensions": [".lsp"],
-        "configuration": "./languages/lsp-language-configuration.json"
-      },
-      {
-        "id": "lsp-wxs",
-        "aliases": ["lsp", "lsp"],
-        "extensions": [".lsp"],
+        "aliases": [
+          "Lsp",
+          "lsp"
+        ],
+        "extensions": [
+          ".lsp"
+        ],
         "configuration": "./languages/lsp-language-configuration.json"
       },
       {
@@ -66,6 +61,13 @@
           "lsp-sugarss"
         ],
         "configuration": "./languages/lsp-sugarss-language-configuration.json"
+      },
+      {
+        "id": "lsp-wxs",
+        "aliases": [
+          "js",
+          "javascript"
+        ]
       }
     ],
     "grammars": [
@@ -75,14 +77,26 @@
         "path": "./syntaxes/lsp-generated.json",
         "embeddedLanguages": {
           "text.html.basic": "html",
-          "text.html.wxml": "lsp-wxml",
+          "text.html.lsp-html": "lsp-wxml",
+          "text.pug": "jade",
+          "text.haml": "haml",
+          "text.slim": "slim",
+          "text.html.liquid": "liquid",
           "source.css": "css",
+          "source.css.scss": "scss",
+          "source.css.less": "less",
           "source.css.postcss": "lsp-postcss",
           "source.css.sugarss": "lsp-sugarss",
+          "source.sass": "sass",
+          "source.stylus": "stylus",
           "source.js": "javascript",
           "source.ts": "typescript",
-          "source.wxs": "javascript",
-          "source.json": "json"
+          "source.coffee": "coffeescript",
+          "text.html.markdown": "md",
+          "source.yaml": "yaml",
+          "source.json": "json",
+          "source.php": "php",
+          "source.graphql": "graphql"
         }
       },
       {
@@ -98,7 +112,7 @@
       {
         "language": "lsp-wxml",
         "scopeName": "text.html.wxml",
-        "path": "./syntaxes/wxml.tmLanguage"
+        "path": "./syntaxes/lsp-wxml.json"
       }
     ],
     "snippets": [
@@ -143,5 +157,8 @@
     "fast-xml-parser": "^3.19.0",
     "vscode": "^1.1.37"
   },
-  "dependencies": {}
+  "dependencies": {
+    "path": "^0.12.7",
+    "vscode-languageclient": "^7.0.0"
+  }
 }
