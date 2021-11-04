@@ -1,0 +1,7 @@
+<snippet>
+  <prefix>subPackages</prefix>
+  <description><![CDATA[App 对应的 JSON 文件 subPackages 配置项，分包结构配置]]></description>
+  <body><![CDATA[
+    "subPackages":[],
+  ]]></body>
+</snippet>

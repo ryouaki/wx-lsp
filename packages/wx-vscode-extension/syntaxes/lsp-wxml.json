@@ -1,0 +1,1319 @@
+{
+  "plist": {
+    "-version": "1.0",
+    "dict": {
+      "key": [
+        "fileTypes",
+        "firstLineMatch",
+        "foldingStartMarker",
+        "foldingStopMarker",
+        "keyEquivalent",
+        "name",
+        "patterns",
+        "repository",
+        "scopeName",
+        "uuid"
+      ],
+      "array": [
+        { "string": "wxml" },
+        {
+          "dict": [
+            {
+              "key": [
+                "begin",
+                "beginCaptures",
+                "end",
+                "endCaptures",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(<)([a-zA-Z0-9:]++)(?=[^>]*></\\2>)",
+                "(>)(<)(/)(\\2)(>)",
+                "meta.tag.any.html"
+              ],
+              "dict": [
+                {
+                  "key": [
+                    "1",
+                    "2"
+                  ],
+                  "dict": [
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.begin.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "entity.name.tag.html"
+                    }
+                  ]
+                },
+                {
+                  "key": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  "dict": [
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.end.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.begin.html meta.scope.between-tag-pair.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.begin.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "entity.name.tag.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.end.html"
+                    }
+                  ]
+                }
+              ],
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "#tag-stuff"
+                }
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "captures",
+                "end",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(<\\?)(xml)",
+                "(\\?>)",
+                "meta.tag.preprocessor.xml.html"
+              ],
+              "dict": {
+                "key": [
+                  "1",
+                  "2"
+                ],
+                "dict": [
+                  {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.html"
+                  },
+                  {
+                    "key": "name",
+                    "string": "entity.name.tag.xml.html"
+                  }
+                ]
+              },
+              "array": {
+                "dict": [
+                  {
+                    "key": "include",
+                    "string": "#tag-generic-attribute"
+                  },
+                  {
+                    "key": "include",
+                    "string": "#string-double-quoted"
+                  },
+                  {
+                    "key": "include",
+                    "string": "#string-single-quoted"
+                  }
+                ]
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "captures",
+                "end",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "<!-{2,3}",
+                "-{2,3}?\\s*>",
+                "comment.block.html"
+              ],
+              "dict": {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "punctuation.definition.comment.html"
+                }
+              },
+              "array": {
+                "dict": [
+                  {
+                    "key": [
+                      "match",
+                      "name"
+                    ],
+                    "string": [
+                      "--",
+                      "invalid.illegal.bad-comments-or-CDATA.html"
+                    ]
+                  },
+                  {
+                    "key": "include",
+                    "string": "#embedded-code"
+                  }
+                ]
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "captures",
+                "end",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "<iscomment>",
+                "</iscomment>",
+                "comment.block.html"
+              ],
+              "dict": {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "punctuation.definition.comment.html"
+                }
+              },
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "#embedded-code"
+                }
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "beginCaptures",
+                "end",
+                "endCaptures",
+                "patterns"
+              ],
+              "string": [
+                "(<)(isscript)(>)",
+                "(</)(isscript)(>)"
+              ],
+              "dict": [
+                {
+                  "key": "2",
+                  "dict": {
+                    "key": "name",
+                    "string": "support.function"
+                  }
+                },
+                {
+                  "key": "2",
+                  "dict": {
+                    "key": "name",
+                    "string": "support.function"
+                  }
+                }
+              ],
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "source.js"
+                }
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "beginCaptures",
+                "end",
+                "patterns"
+              ],
+              "string": [
+                "</?(is[a-zA-Z0-9:]++)",
+                "/?>"
+              ],
+              "dict": {
+                "key": "1",
+                "dict": {
+                  "key": "name",
+                  "string": "support.function"
+                }
+              },
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "#tag-stuff"
+                }
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "captures",
+                "end",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "<!",
+                ">",
+                "meta.tag.sgml.html"
+              ],
+              "dict": {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "punctuation.definition.tag.html"
+                }
+              },
+              "array": {
+                "dict": [
+                  {
+                    "key": [
+                      "begin",
+                      "captures",
+                      "end",
+                      "name",
+                      "patterns"
+                    ],
+                    "string": [
+                      "(?i:DOCTYPE)",
+                      "(?=>)",
+                      "meta.tag.sgml.doctype.html"
+                    ],
+                    "dict": {
+                      "key": "1",
+                      "dict": {
+                        "key": "name",
+                        "string": "entity.name.tag.doctype.html"
+                      }
+                    },
+                    "array": {
+                      "dict": {
+                        "key": [
+                          "match",
+                          "name"
+                        ],
+                        "string": [
+                          "\"[^\">]*\"",
+                          "string.quoted.double.doctype.identifiers-and-DTDs.html"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "key": [
+                      "begin",
+                      "end",
+                      "name"
+                    ],
+                    "string": [
+                      "\\[CDATA\\[",
+                      "]](?=>)",
+                      "constant.other.inline-data.html"
+                    ]
+                  },
+                  {
+                    "key": [
+                      "match",
+                      "name"
+                    ],
+                    "string": [
+                      "(\\s*)(?!--|>)\\S(\\s*)",
+                      "invalid.illegal.bad-comments-or-CDATA.html"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "key": "include",
+              "string": "#embedded-code"
+            },
+            {
+              "key": [
+                "begin",
+                "captures",
+                "end",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(?:^\\s+)?(<)((?i:style))\\b(?![^>]*/>)",
+                "(</)((?i:style))(>)(?:\\s*\\n)?",
+                "source.css.embedded.html"
+              ],
+              "dict": {
+                "key": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "dict": [
+                  {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.html"
+                  },
+                  {
+                    "key": "name",
+                    "string": "entity.name.tag.style.html"
+                  },
+                  {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.html"
+                  }
+                ]
+              },
+              "array": {
+                "dict": [
+                  {
+                    "key": "include",
+                    "string": "#tag-stuff"
+                  },
+                  {
+                    "key": [
+                      "begin",
+                      "beginCaptures",
+                      "end",
+                      "patterns"
+                    ],
+                    "string": [
+                      "(>)",
+                      "(?=</(?i:style))"
+                    ],
+                    "dict": {
+                      "key": "1",
+                      "dict": {
+                        "key": "name",
+                        "string": "punctuation.definition.tag.html"
+                      }
+                    },
+                    "array": {
+                      "dict": [
+                        {
+                          "key": "include",
+                          "string": "#embedded-code"
+                        },
+                        {
+                          "key": "include",
+                          "string": "source.css"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "beginCaptures",
+                "end",
+                "endCaptures",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(?:^\\s+)?(<)((?i:script))\\b(?![^>]*/>)",
+                "(?<=</(script|SCRIPT))(>)(?:\\s*\\n)?",
+                "source.js.embedded.html"
+              ],
+              "dict": [
+                {
+                  "key": [
+                    "1",
+                    "2"
+                  ],
+                  "dict": [
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "entity.name.tag.script.html"
+                    }
+                  ]
+                },
+                {
+                  "key": "2",
+                  "dict": {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.html"
+                  }
+                }
+              ],
+              "array": {
+                "dict": [
+                  {
+                    "key": "include",
+                    "string": "#tag-stuff"
+                  },
+                  {
+                    "key": [
+                      "begin",
+                      "captures",
+                      "end",
+                      "patterns"
+                    ],
+                    "string": [
+                      "(?<!</(?:script|SCRIPT))(>)",
+                      "(</)((?i:script))"
+                    ],
+                    "dict": {
+                      "key": [
+                        "1",
+                        "2"
+                      ],
+                      "dict": [
+                        {
+                          "key": "name",
+                          "string": "punctuation.definition.tag.html"
+                        },
+                        {
+                          "key": "name",
+                          "string": "entity.name.tag.script.html"
+                        }
+                      ]
+                    },
+                    "array": {
+                      "dict": [
+                        {
+                          "key": [
+                            "captures",
+                            "match",
+                            "name"
+                          ],
+                          "dict": {
+                            "key": "1",
+                            "dict": {
+                              "key": "name",
+                              "string": "punctuation.definition.comment.js"
+                            }
+                          },
+                          "string": [
+                            "(//).*?((?=</script)|$\\n?)",
+                            "comment.line.double-slash.js"
+                          ]
+                        },
+                        {
+                          "key": [
+                            "begin",
+                            "captures",
+                            "end",
+                            "name"
+                          ],
+                          "string": [
+                            "/\\*",
+                            "\\*/|(?=</script)",
+                            "comment.block.js"
+                          ],
+                          "dict": {
+                            "key": "0",
+                            "dict": {
+                              "key": "name",
+                              "string": "punctuation.definition.comment.js"
+                            }
+                          }
+                        },
+                        {
+                          "key": "include",
+                          "string": "#php"
+                        },
+                        {
+                          "key": "include",
+                          "string": "source.js"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "captures",
+                "end",
+                "endCaptures",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(</?)((?i:body|head|html)\\b)",
+                "(>)",
+                "meta.tag.structure.any.html"
+              ],
+              "dict": [
+                {
+                  "key": [
+                    "1",
+                    "2"
+                  ],
+                  "dict": [
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.begin.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "entity.name.tag.structure.any.html"
+                    }
+                  ]
+                },
+                {
+                  "key": "1",
+                  "dict": {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.end.html"
+                  }
+                }
+              ],
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "#tag-stuff"
+                }
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "beginCaptures",
+                "end",
+                "endCaptures",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(</?)((?i:address|blockquote|dd|div|dl|dt|fieldset|form|frame|frameset|h1|h2|h3|h4|h5|h6|iframe|noframes|object|ol|p|ul|applet|center|dir|hr|menu|pre)\\b)",
+                "(>)",
+                "meta.tag.block.any.html"
+              ],
+              "dict": [
+                {
+                  "key": [
+                    "1",
+                    "2"
+                  ],
+                  "dict": [
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.begin.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "entity.name.tag.block.any.html"
+                    }
+                  ]
+                },
+                {
+                  "key": "1",
+                  "dict": {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.end.html"
+                  }
+                }
+              ],
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "#tag-stuff"
+                }
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "beginCaptures",
+                "end",
+                "endCaptures",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(</?)((?i:a|abbr|acronym|area|b|base|basefont|bdo|big|br|button|caption|cite|code|col|colgroup|del|dfn|em|font|head|html|i|img|input|ins|isindex|kbd|label|legend|li|link|map|meta|noscript|optgroup|option|param|q|s|samp|script|select|small|span|strike|strong|style|sub|sup|table|tbody|td|textarea|tfoot|th|thead|title|tr|tt|u|var)\\b)",
+                "((?: ?/)?>)",
+                "meta.tag.inline.any.html"
+              ],
+              "dict": [
+                {
+                  "key": [
+                    "1",
+                    "2"
+                  ],
+                  "dict": [
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.begin.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "entity.name.tag.inline.any.html"
+                    }
+                  ]
+                },
+                {
+                  "key": "1",
+                  "dict": {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.end.html"
+                  }
+                }
+              ],
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "#tag-stuff"
+                }
+              }
+            },
+            {
+              "key": [
+                "begin",
+                "beginCaptures",
+                "end",
+                "endCaptures",
+                "name",
+                "patterns"
+              ],
+              "string": [
+                "(</?)([a-zA-Z0-9:]+)",
+                "(>)",
+                "meta.tag.other.html"
+              ],
+              "dict": [
+                {
+                  "key": [
+                    "1",
+                    "2"
+                  ],
+                  "dict": [
+                    {
+                      "key": "name",
+                      "string": "punctuation.definition.tag.begin.html"
+                    },
+                    {
+                      "key": "name",
+                      "string": "entity.name.tag.other.html"
+                    }
+                  ]
+                },
+                {
+                  "key": "1",
+                  "dict": {
+                    "key": "name",
+                    "string": "punctuation.definition.tag.end.html"
+                  }
+                }
+              ],
+              "array": {
+                "dict": {
+                  "key": "include",
+                  "string": "#tag-stuff"
+                }
+              }
+            },
+            {
+              "key": "include",
+              "string": "#entities"
+            },
+            {
+              "key": [
+                "match",
+                "name"
+              ],
+              "string": [
+                "<>",
+                "invalid.illegal.incomplete.html"
+              ]
+            },
+            {
+              "key": [
+                "match",
+                "name"
+              ],
+              "string": [
+                "<",
+                "invalid.illegal.bad-angle-bracket.html"
+              ]
+            },
+            {
+              "key": "include",
+              "string": "#isml-inline"
+            }
+          ]
+        }
+      ],
+      "string": [
+        "<!(?i:DOCTYPE)|<(?i:html)|<\\?(?i:php)",
+        "(?x)(<(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl)\\b.*?>|<!--(?!.*--\\s*>)|^<!--\\ \\#tminclude\\ (?>.*?-->)$|<\\?(?:php)?.*\\b(if|for(each)?|while)\\b.+:|\\{\\{?(if|foreach|capture|literal|foreach|php|section|strip)|\\{\\s*($|\\?>\\s*$|//|/\\*(.*\\*/\\s*$|(?!.*?\\*/))))",
+        "(?x)(</(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl)>|^(?!.*?<!--).*?--\\s*>|^<!--\\ end\\ tminclude\\ -->$|<\\?(?:php)?.*\\bend(if|for(each)?|while)\\b|\\{\\{?/(if|foreach|capture|literal|foreach|php|section|strip)|^[^{]*\\})",
+        "^~H",
+        "HTML",
+        "text.html.wxml",
+        "fc9f0c38-08c8-4d4a-9ca1-8c96a550d600"
+      ],
+      "dict": {
+        "key": [
+          "embedded-code",
+          "entities",
+          "php",
+          "python",
+          "ruby",
+          "string-double-quoted",
+          "string-single-quoted",
+          "tag-generic-attribute",
+          "tag-id-attribute",
+          "isml-inline",
+          "tag-stuff"
+        ],
+        "dict": [
+          {
+            "key": "patterns",
+            "array": {
+              "dict": [
+                {
+                  "key": "include",
+                  "string": "#ruby"
+                },
+                {
+                  "key": "include",
+                  "string": "#php"
+                },
+                {
+                  "key": "include",
+                  "string": "#python"
+                }
+              ]
+            }
+          },
+          {
+            "key": "patterns",
+            "array": {
+              "dict": [
+                {
+                  "key": [
+                    "captures",
+                    "match",
+                    "name"
+                  ],
+                  "dict": {
+                    "key": [
+                      "1",
+                      "3"
+                    ],
+                    "dict": [
+                      {
+                        "key": "name",
+                        "string": "punctuation.definition.entity.html"
+                      },
+                      {
+                        "key": "name",
+                        "string": "punctuation.definition.entity.html"
+                      }
+                    ]
+                  },
+                  "string": [
+                    "(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)",
+                    "constant.character.entity.html"
+                  ]
+                },
+                {
+                  "key": [
+                    "match",
+                    "name"
+                  ],
+                  "string": [
+                    "&",
+                    "invalid.illegal.bad-ampersand.html"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "key": [
+              "begin",
+              "end",
+              "patterns"
+            ],
+            "string": [
+              "(?=(^\\s*)?<\\?)",
+              "(?!(^\\s*)?<\\?)"
+            ],
+            "array": {
+              "dict": {
+                "key": "include",
+                "string": "source.php"
+              }
+            }
+          },
+          {
+            "key": [
+              "begin",
+              "end",
+              "name",
+              "patterns"
+            ],
+            "string": [
+              "(?:^\\s*)<\\?python(?!.*\\?>)",
+              "\\?>(?:\\s*$\\n)?",
+              "source.python.embedded.html"
+            ],
+            "array": {
+              "dict": {
+                "key": "include",
+                "string": "source.python"
+              }
+            }
+          },
+          {
+            "key": "patterns",
+            "array": {
+              "dict": [
+                {
+                  "key": [
+                    "begin",
+                    "captures",
+                    "end",
+                    "name"
+                  ],
+                  "string": [
+                    "<%+#",
+                    "%>",
+                    "comment.block.erb"
+                  ],
+                  "dict": {
+                    "key": "0",
+                    "dict": {
+                      "key": "name",
+                      "string": "punctuation.definition.comment.erb"
+                    }
+                  }
+                },
+                {
+                  "key": [
+                    "begin",
+                    "captures",
+                    "end",
+                    "name",
+                    "patterns"
+                  ],
+                  "string": [
+                    "<%+(?!>)=?",
+                    "-?%>",
+                    "source.ruby.embedded.html"
+                  ],
+                  "dict": {
+                    "key": "0",
+                    "dict": {
+                      "key": "name",
+                      "string": "punctuation.section.embedded.ruby"
+                    }
+                  },
+                  "array": {
+                    "dict": [
+                      {
+                        "key": [
+                          "captures",
+                          "match",
+                          "name"
+                        ],
+                        "dict": {
+                          "key": "1",
+                          "dict": {
+                            "key": "name",
+                            "string": "punctuation.definition.comment.ruby"
+                          }
+                        },
+                        "string": [
+                          "(#).*?(?=-?%>)",
+                          "comment.line.number-sign.ruby"
+                        ]
+                      },
+                      {
+                        "key": "include",
+                        "string": "source.ruby"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "key": [
+                    "begin",
+                    "captures",
+                    "end",
+                    "name",
+                    "patterns"
+                  ],
+                  "string": [
+                    "<\\?r(?!>)=?",
+                    "-?\\?>",
+                    "source.ruby.nitro.embedded.html"
+                  ],
+                  "dict": {
+                    "key": "0",
+                    "dict": {
+                      "key": "name",
+                      "string": "punctuation.section.embedded.ruby.nitro"
+                    }
+                  },
+                  "array": {
+                    "dict": [
+                      {
+                        "key": [
+                          "captures",
+                          "match",
+                          "name"
+                        ],
+                        "dict": {
+                          "key": "1",
+                          "dict": {
+                            "key": "name",
+                            "string": "punctuation.definition.comment.ruby.nitro"
+                          }
+                        },
+                        "string": [
+                          "(#).*?(?=-?\\?>)",
+                          "comment.line.number-sign.ruby.nitro"
+                        ]
+                      },
+                      {
+                        "key": "include",
+                        "string": "source.ruby"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "key": [
+              "begin",
+              "beginCaptures",
+              "end",
+              "endCaptures",
+              "name",
+              "patterns"
+            ],
+            "string": [
+              "\"",
+              "\"",
+              "string.quoted.double.html"
+            ],
+            "dict": [
+              {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "punctuation.definition.string.begin.html"
+                }
+              },
+              {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "punctuation.definition.string.end.html"
+                }
+              }
+            ],
+            "array": {
+              "dict": [
+                {
+                  "key": "include",
+                  "string": "#isml-inline"
+                },
+                {
+                  "key": "include",
+                  "string": "#embedded-code"
+                },
+                {
+                  "key": "include",
+                  "string": "#entities"
+                }
+              ]
+            }
+          },
+          {
+            "key": [
+              "begin",
+              "beginCaptures",
+              "end",
+              "endCaptures",
+              "name",
+              "patterns"
+            ],
+            "string": [
+              "'",
+              "'",
+              "string.quoted.single.html"
+            ],
+            "dict": [
+              {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "punctuation.definition.string.begin.html"
+                }
+              },
+              {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "punctuation.definition.string.end.html"
+                }
+              }
+            ],
+            "array": {
+              "dict": [
+                {
+                  "key": "include",
+                  "string": "#embedded-code"
+                },
+                {
+                  "key": "include",
+                  "string": "#entities"
+                }
+              ]
+            }
+          },
+          {
+            "key": [
+              "match",
+              "name"
+            ],
+            "string": [
+              "\\b([a-zA-Z\\-:]+)",
+              "entity.other.attribute-name.html"
+            ]
+          },
+          {
+            "key": [
+              "begin",
+              "captures",
+              "end",
+              "name",
+              "patterns"
+            ],
+            "string": [
+              "\\b(id)\\b\\s*(=)",
+              "(?<='|\")",
+              "meta.attribute-with-value.id.html"
+            ],
+            "dict": {
+              "key": [
+                "1",
+                "2"
+              ],
+              "dict": [
+                {
+                  "key": "name",
+                  "string": "entity.other.attribute-name.id.html"
+                },
+                {
+                  "key": "name",
+                  "string": "punctuation.separator.key-value.html"
+                }
+              ]
+            },
+            "array": {
+              "dict": [
+                {
+                  "key": [
+                    "begin",
+                    "beginCaptures",
+                    "contentName",
+                    "end",
+                    "endCaptures",
+                    "name",
+                    "patterns"
+                  ],
+                  "string": [
+                    "\"",
+                    "meta.toc-list.id.html",
+                    "\"",
+                    "string.quoted.double.html"
+                  ],
+                  "dict": [
+                    {
+                      "key": "0",
+                      "dict": {
+                        "key": "name",
+                        "string": "punctuation.definition.string.begin.html"
+                      }
+                    },
+                    {
+                      "key": "0",
+                      "dict": {
+                        "key": "name",
+                        "string": "punctuation.definition.string.end.html"
+                      }
+                    }
+                  ],
+                  "array": {
+                    "dict": [
+                      {
+                        "key": "include",
+                        "string": "#embedded-code"
+                      },
+                      {
+                        "key": "include",
+                        "string": "#entities"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "key": [
+                    "begin",
+                    "beginCaptures",
+                    "contentName",
+                    "end",
+                    "endCaptures",
+                    "name",
+                    "patterns"
+                  ],
+                  "string": [
+                    "'",
+                    "meta.toc-list.id.html",
+                    "'",
+                    "string.quoted.single.html"
+                  ],
+                  "dict": [
+                    {
+                      "key": "0",
+                      "dict": {
+                        "key": "name",
+                        "string": "punctuation.definition.string.begin.html"
+                      }
+                    },
+                    {
+                      "key": "0",
+                      "dict": {
+                        "key": "name",
+                        "string": "punctuation.definition.string.end.html"
+                      }
+                    }
+                  ],
+                  "array": {
+                    "dict": [
+                      {
+                        "key": "include",
+                        "string": "#embedded-code"
+                      },
+                      {
+                        "key": "include",
+                        "string": "#entities"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "key": [
+              "begin",
+              "beginCaptures",
+              "end",
+              "endCaptures",
+              "name",
+              "patterns"
+            ],
+            "string": [
+              "(\\$\\{)",
+              "(\\})",
+              "ISML inline code"
+            ],
+            "dict": [
+              {
+                "key": [
+                  "1",
+                  "2"
+                ],
+                "dict": [
+                  {
+                    "key": "name",
+                    "string": "constant.character"
+                  },
+                  {
+                    "key": "name",
+                    "string": "reset"
+                  }
+                ]
+              },
+              {
+                "key": "0",
+                "dict": {
+                  "key": "name",
+                  "string": "constant.character"
+                }
+              }
+            ],
+            "array": {
+              "dict": [
+                {
+                  "key": "include",
+                  "string": "source.js"
+                },
+                {
+                  "key": [
+                    "match",
+                    "name"
+                  ],
+                  "string": [
+                    "[^\\}']+",
+                    "reset"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "key": "patterns",
+            "array": {
+              "dict": [
+                {
+                  "key": "include",
+                  "string": "#tag-id-attribute"
+                },
+                {
+                  "key": "include",
+                  "string": "#tag-generic-attribute"
+                },
+                {
+                  "key": "include",
+                  "string": "#string-double-quoted"
+                },
+                {
+                  "key": "include",
+                  "string": "#string-single-quoted"
+                },
+                {
+                  "key": "include",
+                  "string": "#embedded-code"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
