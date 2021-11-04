@@ -1,0 +1,13 @@
+<snippet>
+  <prefix>wx-startWifi</prefix>
+  <description><![CDATA[初始化 WiFi 模块]]></description>
+  <body><![CDATA[
+    wx.startWifi({
+	success: (result) => {
+		${1}
+	},
+	fail: () => {},
+	complete: () => {}
+});
+  ]]></body>
+</snippet>

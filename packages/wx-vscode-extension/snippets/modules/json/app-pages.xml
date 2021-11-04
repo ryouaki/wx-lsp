@@ -1,0 +1,10 @@
+<snippet>
+  <prefix>pages</prefix>
+  <description><![CDATA[App 对应的 JSON 文件 pages 配置项]]></description>
+  <body><![CDATA[
+    "pages": [
+	"pages/index/index"
+],
+${1}
+  ]]></body>
+</snippet>
