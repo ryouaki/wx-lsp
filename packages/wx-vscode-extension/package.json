@@ -3,7 +3,8 @@
   "displayName": "lsp",
   "description": "lsp 语法高亮",
   "publisher": "lsp",
-  "version": "0.0.1",
+  "icon": "asset/lsp.jpg",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.61.0"
   },
@@ -20,6 +21,10 @@
   "categories": [
     "Programming Languages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryouaki/wx-lsp/tree/main/packages/wx-vscode-extension"
+  },
   "activationEvents": [
     "onLanguage:lsp"
   ],
