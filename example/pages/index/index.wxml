@@ -26,6 +26,7 @@
     </block>
   </view>
   <notice></notice>
+  <view> Hello World</view>
   <template is="hello"></template>
   <view>
     {{util.count()}}
