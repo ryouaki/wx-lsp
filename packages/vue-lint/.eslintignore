@@ -1,0 +1,7 @@
+node_modules/*
+dist/*
+public/*
+
+*-min.js
+*.min.js
+src/assets/icons/iconfont.js

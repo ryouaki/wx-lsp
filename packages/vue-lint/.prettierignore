@@ -1,0 +1,7 @@
+package.json
+mock/
+tests/
+dist/
+public/
+node_modules/
+.prettierrc
