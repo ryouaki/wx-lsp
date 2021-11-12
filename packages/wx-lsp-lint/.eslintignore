@@ -1,0 +1,8 @@
+# .eslintignore
+
+node_modules
+miniprogram_npm
+.husky
+utils/router
+*.min.js
+.eslintrc.js

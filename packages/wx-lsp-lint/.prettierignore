@@ -1,0 +1,23 @@
+# .prettierignore
+
+package.json
+node_modules
+miniprogram_npm
+.husky
+utils/router
+*.min.js
+
+# OS
+.DS_Store
+.idea
+.npmrc
+package-lock.json
+
+# Ignored suffix
+*.log
+*.md
+*.svg
+*.png
+*ignore
+## Built-files
+.cache

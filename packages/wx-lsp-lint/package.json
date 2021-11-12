@@ -1,0 +1,50 @@
+{
+  "name": "wx-lsp-lint",
+  "version": "1.0.0",
+  "description": "lsp代码lint",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^13.1.0",
+    "babel-eslint": "^10.0.3",
+    "commitlint": "^13.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^7.0.1",
+    "lint-staged": "^9.5.0",
+    "prettier": "2.3.2",
+    "prettier-eslint": "^13.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.2.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "eslint": "eslint . --ext .js,.wxs,.sjs",
+    "eslint:fix": "eslint --fix . --ext .js,.wxs,.sjs",
+    "prettier:fix": "prettier . .prettierrc --write",
+    "style:fix": "stylelint '**/*.(wxss|scss)' --fix"
+  },
+  "keywords": [
+    "wx-lsp-lint"
+  ],
+  "license": "ISC",
+  "lint-staged": {
+    "*.{wxss,scss}": [
+      "stylelint '**/*.(wxss|scss)' --fix",
+      "git add"
+    ],
+    "*.{js}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{js,scss,wxss,wxml,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*": [
+      "git add"
+    ]
+  }
+}

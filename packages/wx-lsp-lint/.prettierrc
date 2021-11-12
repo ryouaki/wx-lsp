@@ -1,0 +1,16 @@
+semi: false
+tabWidth: 2
+singleQuote: true
+printWidth: 180
+trailingComma: none
+endOfLine: 'lf'
+arrowParens: 'always'
+jsxBracketSameLine: true
+bracketSpacing: true
+overrides:
+  - files: '*.wxss'
+    options:
+      parser: 'css'
+  - files: '*.wxml'
+    options:
+      parser: 'html'
