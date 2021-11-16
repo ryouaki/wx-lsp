@@ -47,7 +47,7 @@
         "aliases": [
           "lsp-wxml"
         ],
-        "configuration": "./languages/lsp-wxml-language-configuration.json"
+        "configuration": "./languages/lsp-html-language-configuration.json"
       },
       {
         "id": "lsp-postcss",
@@ -81,12 +81,8 @@
         "scopeName": "source.lsp",
         "path": "./syntaxes/lsp-generated.json",
         "embeddedLanguages": {
-          "text.html.basic": "html",
           "text.html.lsp-html": "lsp-wxml",
-          "text.pug": "jade",
-          "text.haml": "haml",
           "text.slim": "slim",
-          "text.html.liquid": "liquid",
           "source.css": "css",
           "source.css.scss": "scss",
           "source.css.less": "less",
@@ -96,12 +92,7 @@
           "source.stylus": "stylus",
           "source.js": "javascript",
           "source.ts": "typescript",
-          "source.coffee": "coffeescript",
-          "text.html.markdown": "md",
-          "source.yaml": "yaml",
-          "source.json": "json",
-          "source.php": "php",
-          "source.graphql": "graphql"
+          "source.json": "json"
         }
       },
       {

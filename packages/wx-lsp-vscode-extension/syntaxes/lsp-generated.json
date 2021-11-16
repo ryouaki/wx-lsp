@@ -616,7 +616,7 @@
       ]
     },
     {
-      "begin": "(<)(js)\\b(?=[^>]*/>$)",
+      "begin": "(<)(script)\\b(?=[^>]*/>$)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -638,7 +638,7 @@
       ]
     },
     {
-      "begin": "(<)(js)(?=[^>]*>[^/>]*</js>)",
+      "begin": "(<)(script)(?=[^>]*>[^/>]*</script>)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -647,7 +647,7 @@
           "name": "entity.name.tag.script.html"
         }
       },
-      "end": "(</)(js)(>)",
+      "end": "(</)(script)(>)",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -670,12 +670,12 @@
               "name": "punctuation.definition.tag.end.html"
             }
           },
-          "end": "(?=</js>)"
+          "end": "(?=</script>)"
         }
       ]
     },
     {
-      "begin": "(<)(js)\\b(?=[^>]*lang=('ts'|\"ts\"))(?![^/>]*/>\\s*$)",
+      "begin": "(<)(script)\\b(?=[^>]*lang=('ts'|\"ts\"))(?![^/>]*/>\\s*$)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -684,7 +684,7 @@
           "name": "entity.name.tag.script.html"
         }
       },
-      "end": "(</)(js)(>)",
+      "end": "(</)(script)(>)",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -708,7 +708,7 @@
               "name": "punctuation.definition.tag.end.html"
             }
           },
-          "end": "(?=</js>)",
+          "end": "(?=</script>)",
           "patterns": [
             {
               "include": "source.ts"
@@ -718,7 +718,7 @@
       ]
     },
     {
-      "begin": "(<)(js)(?![^/>]*/>\\s*$)",
+      "begin": "(<)(script)(?![^/>]*/>\\s*$)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -727,7 +727,7 @@
           "name": "entity.name.tag.script.html"
         }
       },
-      "end": "(</)(js)(>)",
+      "end": "(</)(script)(>)",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -751,7 +751,7 @@
               "name": "punctuation.definition.tag.end.html"
             }
           },
-          "end": "(?=</js>)",
+          "end": "(?=</script>)",
           "patterns": [
             {
               "include": "source.js"

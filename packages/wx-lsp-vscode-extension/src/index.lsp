@@ -21,7 +21,7 @@
   </view>
 </wxml>
 
-<js>
+<script>
 class HomePage extends LspPage {
   constructor() {
     super()
@@ -74,7 +74,7 @@ class HomePage extends LspPage {
 }
 
 Add(new HomePage())
-</js>
+</script>
 <wxss>
 .userinfo {
   display: flex;
