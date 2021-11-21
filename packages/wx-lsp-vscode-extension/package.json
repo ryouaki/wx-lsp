@@ -28,7 +28,7 @@
   "activationEvents": [
     "onLanguage:lsp"
   ],
-  "main": "./dist/extension.dev.js",
+  "main": "./src/index.js",
   "contributes": {
     "languages": [
       {
@@ -81,6 +81,7 @@
         "scopeName": "source.lsp",
         "path": "./syntaxes/lsp-generated.json",
         "embeddedLanguages": {
+          "text.html.basic": "wxml",
           "text.html.lsp-html": "lsp-wxml",
           "text.slim": "slim",
           "source.css": "css",
@@ -118,15 +119,11 @@
       },
       {
         "language": "typescript",
-        "path": "./snippets/lsp-js.json"
+        "path": "./snippets/lsp-ts.json"
       },
       {
         "language": "lsp-wxs",
         "path": "./snippets/lsp-js.json"
-      },
-      {
-        "language": "html",
-        "path": "./snippets/lsp-wxml.json"
       },
       {
         "language": "lsp-wxml",
@@ -155,6 +152,7 @@
   },
   "dependencies": {
     "path": "^0.12.7",
+    "js-beautify": "^1.11.0",
     "vscode-languageclient": "^7.0.0"
   }
 }
