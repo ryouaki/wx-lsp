@@ -4,7 +4,7 @@
   "description": "lsp 语法高亮",
   "publisher": "lsp",
   "icon": "asset/lsp.jpg",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "engines": {
     "vscode": "^1.61.0"
   },
@@ -136,8 +136,6 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "node ./scripts/compile.js",
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "devDependencies": {
