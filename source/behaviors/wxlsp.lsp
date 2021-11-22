@@ -1,4 +1,4 @@
-<js>
+<script>
 module.exports = class extends LspBehavior {
   data = {
     now: 0
@@ -12,4 +12,4 @@ module.exports = class extends LspBehavior {
     }
   }
 }
-</js>
+</script>

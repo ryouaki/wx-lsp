@@ -1,4 +1,4 @@
-<js>
+<script>
 class Application extends LspApp {
   constructor() {
     super()
@@ -10,7 +10,7 @@ class Application extends LspApp {
 }
 
 StartApp(new Application())
-</js>
+</script>
 <wxss>
 </wxss>
 <json>

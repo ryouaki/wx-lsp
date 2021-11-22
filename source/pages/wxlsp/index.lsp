@@ -5,7 +5,7 @@
     {{today}}
   </view>
 </wxml>
-<js>
+<script>
 import getBehavior from './../../behaviors/index'
 
 class WxlspPage extends LspPage {
@@ -17,7 +17,7 @@ class WxlspPage extends LspPage {
 }
 
 Add(new WxlspPage())
-</js>
+</script>
 <wxss>
 .container {
   font-size: 12px;
