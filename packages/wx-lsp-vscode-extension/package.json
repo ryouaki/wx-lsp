@@ -4,7 +4,7 @@
   "description": "lsp 语法高亮",
   "publisher": "lsp",
   "icon": "asset/lsp.jpg",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "engines": {
     "vscode": "^1.61.0"
   },
@@ -50,6 +50,14 @@
         "configuration": "./languages/lsp-html-language-configuration.json"
       },
       {
+        "id": "wxml",
+        "aliases": [
+          "wxml",
+          "lsp-wxml"
+        ],
+        "configuration": "./languages/lsp-html-language-configuration.json"
+      },
+      {
         "id": "lsp-postcss",
         "aliases": [
           "lsp-PostCSS",
@@ -82,7 +90,7 @@
         "path": "./syntaxes/lsp-generated.json",
         "embeddedLanguages": {
           "text.html.basic": "wxml",
-          "text.html.lsp-html": "lsp-wxml",
+          "text.html.lsp-wxml": "lsp-wxml",
           "text.slim": "slim",
           "source.css": "css",
           "source.css.scss": "scss",
@@ -107,9 +115,17 @@
         "path": "./syntaxes/lsp-sugarss.json"
       },
       {
-        "language": "lsp-wxml",
-        "scopeName": "text.html.wxml",
+        "language": "wxml",
+        "scopeName": "text.html.lsp-wxml",
         "path": "./syntaxes/lsp-wxml.json"
+      },
+      {
+        "language": "lsp-wxml",
+        "scopeName": "text.html.lsp-wxml",
+        "path": "./syntaxes/lsp-wxml.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.js": "javascript"
+        }
       }
     ],
     "snippets": [
@@ -126,6 +142,10 @@
         "path": "./snippets/lsp-js.json"
       },
       {
+        "language": "wxml",
+        "path": "./snippets/lsp-wxml.json"
+      },
+      {
         "language": "lsp-wxml",
         "path": "./snippets/lsp-wxml.json"
       },
@@ -136,6 +156,7 @@
     ]
   },
   "scripts": {
+    "build": "vsce package",
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "devDependencies": {
