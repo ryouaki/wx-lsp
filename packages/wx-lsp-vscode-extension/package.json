@@ -4,7 +4,7 @@
   "description": "lsp 语法高亮",
   "publisher": "lsp",
   "icon": "asset/lsp.jpg",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "engines": {
     "vscode": "^1.61.0"
   },
@@ -142,16 +142,8 @@
         "path": "./snippets/lsp-js.json"
       },
       {
-        "language": "wxml",
-        "path": "./snippets/lsp-wxml.json"
-      },
-      {
         "language": "lsp-wxml",
         "path": "./snippets/lsp-wxml.json"
-      },
-      {
-        "language": "json",
-        "path": "./snippets/lsp-json.json"
       }
     ]
   },

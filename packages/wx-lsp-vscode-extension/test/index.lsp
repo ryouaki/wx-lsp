@@ -99,7 +99,6 @@ Add(new HomePage())
 <json>
 {
   "usingComponents": {
-    a: a
   }
 }
 </json>
