@@ -765,7 +765,7 @@
         "(?x)(</(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|li|form|dl)>|^(?!.*?<!--).*?--\\s*>|^<!--\\ end\\ tminclude\\ -->$|<\\?(?:php)?.*\\bend(if|for(each)?|while)\\b|\\{\\{?/(if|foreach|capture|literal|foreach|php|section|strip)|^[^{]*\\})",
         "^~H",
         "HTML",
-        "text.html.wxml",
+        "text.html.lsp-wxml",
         "fc9f0c38-08c8-4d4a-9ca1-8c96a550d600"
       ],
       "dict": {

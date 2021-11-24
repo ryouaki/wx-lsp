@@ -1043,7 +1043,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>text.html.wxml</string>
+	<string>text.html.lsp-wxml</string>
 	<key>uuid</key>
 	<string>1b7f4154-5309-484a-9618-f3fc3d143e2c/string>
 </dict>

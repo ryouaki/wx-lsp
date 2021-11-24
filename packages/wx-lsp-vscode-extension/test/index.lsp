@@ -18,10 +18,16 @@
       </block>
     </view>
     <view></view>
+    <view>
+      <text class="" selectable="false" space="false" decode="false">
+      </text>
+    </view>
+    <view>
+    </view>
   </view>
 </wxml>
 
-<js>
+<script>
 class HomePage extends LspPage {
   constructor() {
     super()
@@ -74,25 +80,25 @@ class HomePage extends LspPage {
 }
 
 Add(new HomePage())
-</js>
-<wxss>
+</script>
+<wxss lang="scss" >
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #aaa;
-}
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+  .userinfo-avatar {
+    overflow: hidden;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
 }
 </wxss>
 <json>
 {
-  "usingComponents": {}
+  "usingComponents": {
+  }
 }
 </json>
